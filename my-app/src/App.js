@@ -1,14 +1,18 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState} from 'react'; 
+const countInitial = () => {
+  console.log ('run function');
+  return 4
+}
+
 
 function App() {
-  const [count, setCount] = useState(4);
-
+  const [count, setCount] = useState(() => countInitial());
   const decrementCount = () => {
-    setCount(count-1);
+    setCount(prevCount => prevCount-1);
   }
   const incrementCount = () => {
-    setCount(count+1);
+    setCount(prevCount => prevCount+1);
   }
 
 
